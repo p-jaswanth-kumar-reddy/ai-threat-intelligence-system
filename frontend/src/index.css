@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #050505;
+  color: #e5e7eb;
+  font-family: 'Courier New', monospace;
+}
+
+/* subtle grid effect */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      rgba(0, 255, 65, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 65, 0.03) 1px,
+      transparent 1px
+    );
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.matrix-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: black;
+  overflow: hidden;
+}
+
+.matrix-bg::before {
+  content: "010101010101010101010101010101010101010101";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  color: #00ff41;
+  font-size: 14px;
+  opacity: 0.05;
+  animation: matrixMove 20s linear infinite;
+}
+
+@keyframes matrixMove {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
