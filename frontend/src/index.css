@@ -3,38 +3,31 @@
 @tailwind utilities;
 
 body {
+  margin: 0;
   background: #050505;
   color: #e5e7eb;
   font-family: 'Courier New', monospace;
+  overflow-x: hidden;
 }
 
-/* subtle grid effect */
+/* Cyber grid effect */
 body::before {
   content: "";
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-      rgba(0, 255, 65, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 255, 65, 0.03) 1px,
-      transparent 1px
-    );
+  inset: 0;
+  background:
+    linear-gradient(rgba(0,255,65,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,65,0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   pointer-events: none;
+  z-index: -2;
 }
 
+/* Matrix animation */
 .matrix-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: -1;
-  background: black;
   overflow: hidden;
 }
 
@@ -46,10 +39,16 @@ body::before {
   color: #00ff41;
   font-size: 14px;
   opacity: 0.05;
+  white-space: nowrap;
   animation: matrixMove 20s linear infinite;
 }
 
 @keyframes matrixMove {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
 }
