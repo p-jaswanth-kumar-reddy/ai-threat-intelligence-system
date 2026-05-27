@@ -44,22 +44,23 @@ An AI-powered cybersecurity platform designed for vulnerability assessment, thre
 # 📂 Project Structure
 
 ```bash
-ai-threat-intelligence-system/
+ai-redteam/
 │
 ├── backend/
-│   ├── services/
-│   ├── routes/
-│   ├── authentication.py
 │   ├── database.py
 │   ├── main.py
-│   └── requirements.txt
+│   ├── services/
+│   └── reports/
 │
 ├── frontend/
-│   ├── src/
 │   ├── public/
+│   ├── src/
 │   ├── package.json
+│   ├── package-lock.json
+│   ├── postcss.config.js
 │   └── tailwind.config.js
 │
+├── .gitignore
 └── README.md
 ```
 
