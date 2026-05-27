@@ -85,10 +85,10 @@ def login(data: dict = Body(...)):
     if user["password"] != password:
         raise HTTPException(status_code=400, detail="Wrong password")
 
-    # 🔥 DELETE OLD OTP
+    #  DELETE OLD OTP
     otp_collection.delete_many({"email": email})
 
-    # 🔥 CREATE NEW OTP
+    #  CREATE NEW OTP
     otp = str(randint(100000, 999999))
 
     otp_collection.insert_one({
